@@ -19,6 +19,7 @@ python -m pip install pytest
 
 # Run tests 
 pytest -q
+or pytest -v #if you want to see message
 
 # Run CLI
 python -m cdc push 5 pop
