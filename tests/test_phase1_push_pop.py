@@ -37,4 +37,9 @@ def test_T_ADD_REAL1():
     assert out == "7 + j0"
     assert err == ""
 
+def test_T_ADD_CPLX1():
+    code, out, err = run_cli("push", "3+j4", "push", "1-j2", "add", "pop")
+    assert code == 0
+    assert out == "4 + j2"
+    assert err == ""
 
