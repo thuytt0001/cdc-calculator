@@ -18,6 +18,12 @@ def T_PUSH_CPLX1():
     assert out == "-2.5 - j0.25"
     assert err == ""
 
+def T_PUSH_CPLX2():
+    code, out, err = run_cli("push", "3", "+", "j", "4", "pop")
+    assert code == 0
+    assert out == "-2.5 - j0.25"
+    assert err == ""
+
 def T_POP_ERR1():
     code, out, err = run_cli("pop")
     # expected error once implemented:
