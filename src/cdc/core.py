@@ -32,6 +32,13 @@ class Stack:
         b = self.pop()  # top of stack
         a = self.pop()  # next element
         self.push(a + b)
+    
+    def sub(self):
+        if len(self._s) < 2:
+            raise StackUnderflow("Not enough elements to perform SUB")
+        b = self.pop()
+        a = self.pop()
+        self.push(a - b)
 
 def fmt_complex(z: complex) -> str:
     # TODO: format as 'a ± jI' with -0 → 0, drop .0 when int
