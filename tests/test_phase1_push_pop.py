@@ -91,3 +91,9 @@ def test_T_DIV_REAL1():
     assert out == "4 + j0"
     assert err == ""
 
+def test_T_DIV_CPLX1():
+    code, out, err = run_cli("push", "4+j2", "push", "1+j1", "div", "pop")
+    assert code == 0
+    assert out == "3 - j1"
+    assert err == ""
+
