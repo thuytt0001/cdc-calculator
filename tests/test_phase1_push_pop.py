@@ -55,3 +55,9 @@ def test_T_SUB_REAL1():
     assert out == "3 + j0"
     assert err == ""
 
+def test_T_SUB_CPLX1():
+    code, out, err = run_cli("push", "3+j4", "push", "1-j2", "sub", "pop")
+    assert code == 0
+    assert out == "2 + j6"
+    assert err == ""
+
