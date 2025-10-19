@@ -97,3 +97,10 @@ def test_T_DIV_CPLX1():
     assert out == "3 - j1"
     assert err == ""
 
+def test_T_DIV_ERR1():
+    code, out, err = run_cli("push", "1", "push", "0", "div", "pop")
+    assert code == 1
+    assert out == "Error: division by 0"
+    assert err == ""
+
+
