@@ -25,6 +25,13 @@ class Stack:
         if not self._s:
             raise StackUnderflow("empty stack")
         return self._s.pop()
+    
+    def add(self):
+        if len(self._s) < 2:
+            raise StackUnderflow("Not enough elements to perform ADD")
+        b = self.pop()  # top of stack
+        a = self.pop()  # next element
+        self.push(a + b)
 
 def fmt_complex(z: complex) -> str:
     # TODO: format as 'a ± jI' with -0 → 0, drop .0 when int
