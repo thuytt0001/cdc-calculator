@@ -1,13 +1,29 @@
 
 from __future__ import annotations
+import re
 import sys
 
 # NOTE: We intentionally avoid importing functions that aren't implemented yet.
 from .core import Stack, StackUnderflow, fmt_complex
 
 def _parse_real(token: str) -> complex:
-    # NOTE for First increment: real numbers only. Complex comes in later tests.
-    return complex(float(token), 0.0)
+    token = token.strip().replace("−", "-")
+    ## if complex number
+    if "j" in token:
+        # remove j
+        token = token.replace("j", "")
+        # split number for real and imaginary
+        if "+" in token[1:]:
+            real, imag = token.split("+", 1)
+        elif "-" in token[1:]:
+            for i in range(len(token)):
+                if token[i] == "-" and i > 0:
+                    real = token[:i]
+                    imag = token[i:]
+        return complex(float(real), float(imag))
+    # if real only
+    else: 
+        return complex(float(token), 0.0)
 
 def main(argv=None) -> int:
     argv = list(argv or sys.argv[1:])
