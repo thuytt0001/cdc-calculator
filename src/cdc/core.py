@@ -39,6 +39,11 @@ class Stack:
         b = self.pop()
         a = self.pop()
         self.push(a - b)
+    
+    def mul(self):
+        b = self.pop()
+        a = self.pop()
+        self.push(a * b)
 
 def fmt_complex(z: complex) -> str:
     # TODO: format as 'a ± jI' with -0 → 0, drop .0 when int
