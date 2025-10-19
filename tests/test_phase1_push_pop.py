@@ -61,3 +61,8 @@ def test_T_SUB_CPLX1():
     assert out == "2 + j6"
     assert err == ""
 
+def test_T_SUB_ERR1():
+    code, out, err = run_cli("sub")
+    assert code == 1
+    assert out == "Error: stack underflow"
+    assert err == ""
