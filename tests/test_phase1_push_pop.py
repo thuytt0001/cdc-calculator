@@ -72,3 +72,10 @@ def test_T_MUL_REAL1():
     assert code == 0
     assert out == "-6 + j0"
     assert err == ""
+
+def test_T_MUL_CPLX1():
+    code, out, err = run_cli("push", "1+j2", "push", "3-j4", "mul", "pop")
+    assert code == 0
+    assert out == "11 + j2"
+    assert err == ""
+
