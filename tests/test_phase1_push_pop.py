@@ -108,3 +108,9 @@ def test_T_DIV_ERR2():
     assert code == 0
     assert out == "Error: division by zero"
     assert err == ""
+
+def test_T_DEL_REAL1():
+    code, out, err = run_cli("push", "1", "push", "2", "delete", "pop")
+    assert code == 0
+    assert out == "1 + j0"
+    assert err == ""
