@@ -42,7 +42,7 @@ def main(argv=None) -> int:
                     return 1
                 j = i + 1
                 number_tokens = []
-                while j < len(argv) and argv[j].upper() not in ("PUSH", "POP", "ADD", "SUB", "MUL"):
+                while j < len(argv) and argv[j].upper() not in ("PUSH", "POP", "ADD", "SUB", "MUL", "DIV"):
                     number_tokens.append(argv[j])
                     j += 1
 
@@ -62,6 +62,9 @@ def main(argv=None) -> int:
                 i += 1
             elif tok == "MUL":
                 st.mul()
+                i += 1
+            elif tok == "DIV":
+                st.div()
                 i += 1
             else:
                 # unknown command (keeps scope minimal for now)
