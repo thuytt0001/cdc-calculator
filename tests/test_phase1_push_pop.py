@@ -88,6 +88,6 @@ def test_T_MUL_ERR1():
 def test_T_DIV_REAL1():
     code, out, err = run_cli("push", "8", "push", "2", "div", "pop")
     assert code == 0
-    assert out == "-4 + j0"
+    assert out == "4 + j0"
     assert err == ""
 
