@@ -40,9 +40,16 @@ def main(argv=None) -> int:
                     # not enough tokens after PUSH
                     print("Error: invalid token")
                     return 1
-                z = _parse_real(argv[i + 1])
+                j = i + 1
+                number_tokens = []
+                while j < len(argv) and argv[j].upper() not in ("PUSH", "POP"):
+                    number_tokens.append(argv[j])
+                    j += 1
+
+                z_str = "".join(number_tokens)    
+                z = _parse_real(z_str)
                 st.push(z)
-                i += 2
+                i = j
             elif tok == "POP":
                 z = st.pop()
                 print(fmt_complex(z))
