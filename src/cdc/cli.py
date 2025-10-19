@@ -74,6 +74,8 @@ def main(argv=None) -> int:
     except StackUnderflow:
         print("Error: stack underflow")
         return 1
+    except ZeroDivisionError:
+        print("Error: division by zero")
     except Exception:
         # conservative catch-all as "invalid token" for early increments
         print("Error: invalid token")

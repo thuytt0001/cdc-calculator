@@ -48,6 +48,8 @@ class Stack:
     def div(self):
         b = self.pop()
         a = self.pop()
+        if b == 0:
+            raise ZeroDivisionError("Cannot divide by 0")
         self.push(a/b)
 
 def fmt_complex(z: complex) -> str:
