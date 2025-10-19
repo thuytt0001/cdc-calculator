@@ -79,3 +79,9 @@ def test_T_MUL_CPLX1():
     assert out == "11 + j2"
     assert err == ""
 
+def test_T_MUL_ERR1():
+    code, out, err = run_cli("mul")
+    assert code == 1
+    assert out == "Error: stack underflow"
+    assert err == ""
+
