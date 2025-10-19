@@ -66,3 +66,9 @@ def test_T_SUB_ERR1():
     assert code == 1
     assert out == "Error: stack underflow"
     assert err == ""
+
+def test_T_MUL_REAL1():
+    code, out, err = run_cli("push", "3", "push", "-2", "mul", "pop")
+    assert code == 0
+    assert out == "-6 + j0"
+    assert err == ""
