@@ -43,3 +43,9 @@ def test_T_ADD_CPLX1():
     assert out == "4 + j2"
     assert err == ""
 
+def test_T_ADD_ERR1():
+    code, out, err = run_cli("push", "3", "add")
+    assert code == 1
+    assert out == "Error: stack underflow"
+    assert err == ""
+
