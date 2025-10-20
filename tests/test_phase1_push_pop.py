@@ -99,13 +99,13 @@ def test_T_DIV_CPLX1():
 
 def test_T_DIV_ERR1():
     code, out, err = run_cli("push", "1", "push", "0", "div", "pop")
-    assert code == 0
+    assert code == 1                      # ← was 0
     assert out == "Error: division by zero"
     assert err == ""
 
 def test_T_DIV_ERR2():
     code, out, err = run_cli("push", "1+j0", "push", "0+j0", "div", "pop")
-    assert code == 0
+    assert code == 1                      # ← was 0
     assert out == "Error: division by zero"
     assert err == ""
 
@@ -113,4 +113,18 @@ def test_T_DEL_REAL1():
     code, out, err = run_cli("push", "1", "push", "2", "delete", "pop")
     assert code == 0
     assert out == "1 + j0"
+    assert err == ""
+
+def test_T_DEL_CPLX1():
+    # push two complex numbers, delete the top, pop -> should return the first one
+    code, out, err = run_cli("push", "1+j1", "push", "2+j3", "delete", "pop")
+    assert code == 0
+    assert out == "1 + j1"
+    assert err == ""
+
+def test_T_DEL_ERR1():
+    # deleting on an empty stack should raise stack underflow
+    code, out, err = run_cli("delete")
+    assert code == 1
+    assert out == "Error: stack underflow"
     assert err == ""

@@ -42,7 +42,7 @@ def main(argv=None) -> int:
                     return 1
                 j = i + 1
                 number_tokens = []
-                while j < len(argv) and argv[j].upper() not in ("PUSH", "POP", "ADD", "SUB", "MUL", "DIV"):
+                while j < len(argv) and argv[j].upper() not in ("PUSH", "POP", "ADD", "SUB", "MUL", "DIV", "DELETE"):
                     number_tokens.append(argv[j])
                     j += 1
 
@@ -66,6 +66,9 @@ def main(argv=None) -> int:
             elif tok == "DIV":
                 st.div()
                 i += 1
+            elif tok == "DELETE":               
+                st.delete()
+                i += 1
             else:
                 # unknown command (keeps scope minimal for now)
                 print("Error: invalid token")
@@ -76,6 +79,7 @@ def main(argv=None) -> int:
         return 1
     except ZeroDivisionError:
         print("Error: division by zero")
+        return 1 
     except Exception:
         # conservative catch-all as "invalid token" for early increments
         print("Error: invalid token")

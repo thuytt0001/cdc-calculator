@@ -52,6 +52,11 @@ class Stack:
             raise ZeroDivisionError("Cannot divide by 0")
         self.push(a/b)
 
+    def delete(self) -> None:
+        if not self._s:
+            raise StackUnderflow("empty stack")
+        self._s.pop()
+
 def fmt_complex(z: complex) -> str:
     # TODO: format as 'a ± jI' with -0 → 0, drop .0 when int
     # raise NotImplementedError
